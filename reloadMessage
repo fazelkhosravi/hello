@@ -1,8 +1,8 @@
-        $tmp_username = str_replace(array('ـ','_','.',' ','َ','ُ','ِ','ً','ٌ','ٍ','*'), '', strtolower($_POST['message']));
+        $tmp_msg = str_replace(array('ـ','_','.',' ','َ','ُ','ِ','ً','ٌ','ٍ','*'), '', strtolower($_POST['message']));
         if($_POST['privat']!='') {
             $array_Tablighlist = array('چت','chat');
             foreach ($array_Tablighlist as $value) {
-                if(strpos($tmp_username,$value) !== false && $_SESSION['etchat_'.$this->_prefix.'user_priv']!='admin' && $_SESSION['etchat_'.$this->_prefix.'user_priv']!='mod' && $_SESSION['etchat_'.$this->_prefix.'user_priv']!='nazer-arshad') {
+                if(strpos($tmp_msg,$value) !== false && $_SESSION['etchat_'.$this->_prefix.'user_priv']!='admin' && $_SESSION['etchat_'.$this->_prefix.'user_priv']!='mod' && $_SESSION['etchat_'.$this->_prefix.'user_priv']!='nazer-arshad') {
                     $messages = '<b>سیستم بررسی خصوصی : در صورتی که متن تبلیغ است بررسی نمایید.</b><br/>نام کاربر : <b>'.$_SESSION['etchat_'.$this->_prefix.'username'].'</b><br/>متن پیام : <b>'.str_replace('/window: ', '', $_POST['message']).'</b>';
                     $Mod = $this->dbObj->sqlGet("SELECT etchat_onlineuser_fid,etchat_fid_room FROM {$this->_prefix}etchat_useronline WHERE etchat_user_online_user_priv='mod' OR etchat_user_online_user_priv='nazer-arshad' OR etchat_user_online_user_priv='admin'");
                     if(is_array($Mod)) {
