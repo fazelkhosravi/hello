@@ -1,3 +1,6 @@
+/* Chat Template */
+/* After <title>______</title> */
+
 <?php
 if($_SERVER['HTTP_HOST']==='chatuoouoo.ir' || $_SERVER['HTTP_HOST']==='www.chatuoouoo.ir') {
     echo '<meta name="google-site-verification" content="Kxaidf7b86qq96o_Ek8hhVyVNIMS08F1PZ3FFWaKexk" />';
