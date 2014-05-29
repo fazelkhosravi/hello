@@ -4,7 +4,8 @@ if($_POST['privat']=='' || $_POST['privat']=='0') {
             foreach ($array_blacklist as $value) {
                 if(strpos($tmp_message,$value) !== false) {
                     $_POST['message'] = "متن شما ارسال نشد، سیستم تشخیص کلمات بد، متن شما حاوی کلمه ای نامناسب برداشت کرده است. لطفا در صورتی که اطمینان دارید مشکلی ندارد در بخش ارتباط با ما متن خود را اعلام نمایید تا در بهبود این سیستم به ما کمک کرده باشید.";
-                    $_POST['privat'] = $_SESSION['etchat_'.$this->_prefix.'user_id'];
+                    $this->dbObj->sqlSet("INSERT INTO {$this->_prefix}etchat_messages ( etchat_user_fid, etchat_text, etchat_text_css, etchat_timestamp, etchat_fid_room, etchat_privat, etchat_user_ip) VALUES ( '1', '{$_POST['message']}', '', ".date('U').", {$_POST['room']}, {$_SESSION['etchat_'.$this->_prefix.'user_id']}, '{$_SERVER['REMOTE_ADDR']}')");
+                    return false;
                 }
             }
         }
