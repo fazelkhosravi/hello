@@ -1,5 +1,5 @@
 if($_POST['privat']=='' || $_POST['privat']=='0') {
-            $tmp_message = str_replace(array('ـ','_','.',' ','َ','ُ','ِ','ً','ٌ','ٍ','*'), '', strtolower($_POST['message']));
+            $tmp_message = str_replace(array('ـ','_','.',' ','َ','ُ','ِ','ً','ٌ','ٍ','*','ْ','ٌ','ٍ','ً','ُ','ِ','َ','ٰ','‌','ٔ'), '', strtolower($_POST['message']));
             $array_blacklist = array('sex','kos','kir','گایید','لاشی','هرزه','کیر','کسکش','جغی','مادرخراب','ننت','ننتون','ننهتون','جنده','گایدم','گایدی','گایدت','کون','خواهرکس','خاهرکس','خارکس','کسمادر','کسننه','کسخواهر');
             foreach ($array_blacklist as $value) {
                 if(strpos($tmp_message,$value) !== false) {
